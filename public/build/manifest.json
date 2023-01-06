@@ -1,0 +1,20 @@
+{
+  "public/images/background/bg.jpg": {
+    "file": "assets/bg-bb2f945e.jpg",
+    "src": "public/images/background/bg.jpg"
+  },
+  "public/images/background/bg-dark.jpg": {
+    "file": "assets/bg-dark-1dd202e7.jpg",
+    "src": "public/images/background/bg-dark.jpg"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-ed335212.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-011cb4d5.js",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
