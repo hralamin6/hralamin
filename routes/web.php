@@ -16,7 +16,9 @@ Route::get('/resume', \App\Http\Livewire\ResumeComponent::class)->name('resume')
 Route::get('/contact', \App\Http\Livewire\ContactComponent::class)->name('contact');
 Route::get('/blog', \App\Http\Livewire\BlogComponent::class)->name('blog');
 Route::get('/about', \App\Http\Livewire\AboutComponent::class)->name('about');
-
+Route::middleware('auth')->group(function () {
+    Route::get('/setting', \App\Http\Livewire\Admin\SettingComponent::class)->name('setting');
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

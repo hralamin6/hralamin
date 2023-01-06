@@ -14,8 +14,8 @@
                                             </span>
                             <div class="space-y-2">
                                 <p class="text-xl font-semibold dark:text-white"> Phone : </p>
-                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]"> +452 666 386 </p>
-                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]"> +452 666 386 </p>
+                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->phone}}</p>
+                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->phone_two}}</p>
                             </div>
                         </div>
 
@@ -27,10 +27,8 @@
                                             </span>
                             <div class="space-y-2">
                                 <p class="text-xl font-semibold dark:text-white"> Email : </p>
-                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]"> support@gmail.com
-                                </p>
-                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]"> example@gmail.com
-                                </p>
+                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->email}}</p>
+                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->email_two}}</p>
                             </div>
                         </div>
 
@@ -42,10 +40,7 @@
                                             </span>
                             <div class="space-y-2">
                                 <p class="text-xl font-semibold dark:text-white"> Address : </p>
-                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]"> Maount View, Oval
-                                </p>
-                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]"> Road, New York,
-                                    USA </p>
+                                <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->location}}</p>
                             </div>
                         </div>
                     </div>
@@ -53,12 +48,8 @@
                     <div class="w-full mt-8 lg:mt-0 lg:w-[60%] xl:w-[70%]">
                         <div data-aos="fade"
                              class="dark:border-[#212425] dark:border-2 mb-16 md:p-[48px] p-4 bg-color-810 rounded-xl dark:bg-[#111111] mb-[30px] md:mb-[60px] aos-init aos-animate">
-                            <h3 class="text-2xl">
-                                                <span class="text-gray-lite dark:text-[#A6A6A6]">I'm always open to
-                                                    discussing product</span>
-                                <br />
-                                <span class="font-semibold dark:text-white">design work or
-                                                    partnerships.</span>
+                            <h3 class="text-lg">
+                                <span class="font-semibold dark:text-white">@lang('have you anything to say')</span>
                             </h3>
 
                             <form id="myForm" action="https://formspree.io/f/xoqrgaab" method="POST">
@@ -108,10 +99,10 @@
 
         <!-- footer  start-->
         <footer class="overflow-hidden rounded-b-2xl">
-            <p class="text-center py-6 text-gray-500 dark:text-color-910"> © 2022 All Rights Reserved
+            <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} All Rights Reserved
                 by <a class="hover:text-[#FA5252] duration-300 transition"
-                      href="https://themeforest.net/user/ib-themes" target="_blank"
-                      rel="noopener noreferrer">ib-themes</a>. </p>
+                      href="{{$main->site_url}}" target="_blank"
+                      rel="noopener noreferrer">{{$main->name}}</a>. </p>
         </footer>
         <!-- footer ends -->
     </div>

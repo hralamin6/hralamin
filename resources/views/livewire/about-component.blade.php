@@ -3,38 +3,32 @@
         <div data-aos="fade" class="aos-init aos-animate">
             <div class="py-12">
                 <!-- about page title -->
-                <h2 class="after-effect after:left-52 font-semibold mt-12 lg:mt-0 text-4xl dark:text-white"> About Me </h2>
+                <h2 class="after-effect after:left-52 font-semibold mt-12 lg:mt-0 text-4xl dark:text-white">About Me</h2>
                 <div class="grid grid-cols-12 md:gap-10 pt-4 md:pt-[40px] items-center">
                     <div class="col-span-12 md:col-span-4">
                         <!-- about me image -->
                         <img class="w-full md:w-[330px] md:h-[400px] object-cover overflow-hidden rounded-[35px] mb-3 md:mb-0"
-                             src="images/about/about.jpg" alt="about image" />
+                             src="{{$main->getFirstMediaUrl('about_image', 'thumb')}}" alt="about avatar" />
                     </div>
                     <div class="col-span-12 md:col-span-8 space-y-2.5">
                         <!-- who am i content  -->
                         <div class="md:mr-12 xl:mr-16">
-                            <h3 class="text-4xl text-gray-900 font-medium dark:text-white mb-2.5"> Who am i? </h3>
-                            <p class="text-gray-lite dark:text-color-910 leading-7 text-gray-600"> I'm Creative
-                                Director and UI/UX Designer from Sydney, Australia, working in web
-                                development and print media. I enjoy turning complex problems into
-                                development and print media. I enjoy turning complex problems into
-                                development and print media. I enjoy turning complex problems into
-                                simple, beautiful and intuitive designs. </p>
+                            <h3 class="text-4xl text-gray-900 font-medium dark:text-white mb-2.5">Who am i?</h3>
+                            <p class="text-gray-lite dark:text-color-910 leading-7 text-gray-600"> {{$main->about}} </p>
                         </div>
 
                         <!-- personal info -->
                         <div>
-                            <h3 class="text-4xl font-medium my-5 dark:text-white"> Personal Info </h3>
+                            <h3 class="text-4xl font-medium my-5 dark:text-white">Personal Info</h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="flex">
-                                                    <span
-                                                        class="text-green-500 bg-white dark:bg-gray-800 shadow-md mr-2.5 flex items-center justify-center rounded-md text-2xl w-12 text-">
-                                                        <i class="fa-solid fa-mobile-screen-button"></i>
-                                                    </span>
+                                    <span class="text-green-500 bg-white dark:bg-gray-800 shadow-md mr-2.5 flex items-center justify-center rounded-md text-2xl w-12 text-">
+                                        <i class="fa-solid fa-mobile-screen-button"></i>
+                                    </span>
                                     <div class="space-y-1">
-                                        <p class="text-xs text-gray-500 dark:text-color-910"> Phone
+                                        <p class="text-xs text-gray-500 dark:text-color-910">Phone
                                         </p>
-                                        <h6 class="font-medium dark:text-white"> +123 456 7890 </h6>
+                                        <h6 class="font-medium dark:text-white">{{$main->phone}}</h6>
                                     </div>
                                 </div>
 
@@ -46,7 +40,7 @@
                                     <div class="space-y-1">
                                         <p class="text-xs text-gray-500 dark:text-color-910"> Location
                                         </p>
-                                        <h6 class="font-medium dark:text-white"> Hong kong china </h6>
+                                        <h6 class="font-medium dark:text-white">{{$main->location}}</h6>
                                     </div>
                                 </div>
 
@@ -58,7 +52,7 @@
                                     <div class="space-y-1">
                                         <p class="text-xs text-gray-500 dark:text-color-910"> Email
                                         </p>
-                                        <h6 class="font-medium dark:text-white"> example@mail.com </h6>
+                                        <h6 class="font-medium dark:text-white">{{$main->email}}</h6>
                                     </div>
                                 </div>
 
@@ -70,7 +64,7 @@
                                     <div class="space-y-1">
                                         <p class="text-xs text-gray-500 dark:text-color-910"> Birthday
                                         </p>
-                                        <h6 class="font-medium dark:text-white"> May 27, 1990 </h6>
+                                        <h6 class="font-medium dark:text-white">{{$main->date_of_birth}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -185,11 +179,11 @@
             </div>
 
             <!-- footer section start -->
-            <footer class="overflow-hidden rounded-b-2xl" style="background: transparent;">
-                <p class="text-center py-6 text-gray-800 dark:text-gray-500"> © 2022 All Rights
-                    Reserved by <a class="hover:text-[#FA5252] duration-300 transition"
-                                   href="https://themeforest.net/user/ib-themes" target="_blank"
-                                   rel="noopener noreferrer"> ib-themes</a>. </p>
+            <footer class="overflow-hidden rounded-b-2xl">
+                <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} All Rights Reserved
+                    by <a class="hover:text-[#FA5252] duration-300 transition"
+                          href="{{$main->site_url}}" target="_blank"
+                          rel="noopener noreferrer">{{$main->name}}</a>. </p>
             </footer>
             <!-- footer section end -->
         </div>

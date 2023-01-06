@@ -8,13 +8,8 @@
     "src": "public/images/background/bg-dark.jpg"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-ed335212.css",
+    "file": "assets/app-0c128db8.css",
     "src": "resources/sass/app.scss",
-    "isEntry": true
-  },
-  "resources/js/app.js": {
-    "file": "assets/app-011cb4d5.js",
-    "src": "resources/js/app.js",
     "isEntry": true
   }
 }
