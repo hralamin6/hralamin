@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Models\Setup;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 
 class AuthServiceProvider extends ServiceProvider
@@ -33,6 +34,10 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('isUser', function ($user){
             return $user->type == 'user';
         });
-        View::share('main', Setup::first());
+        if(Schema::hasTable('setups')) {
+            View::share('main', Setup::first());
+        } else {
+            View::share('main', []);
+        }
     }
 }
