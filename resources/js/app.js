@@ -14,4 +14,4 @@ Alpine.start()
 Alpine.plugin(Intersect)
 Alpine.plugin(Morph)
 Alpine.plugin(Focus)
-import '../sass/app.scss';
+
