@@ -1,6 +1,6 @@
 <header x-data="{nav: false}" class="flex justify-between items-center fixed top-0 left-0 w-full lg:static z-[1111111111]">
     <div class="flex justify-between w-full lg:px-0 bg-[#F3F6F6] lg:bg-transparent dark:bg-black">
-        <div class="flex justify-between w-full items-center space-x-4 lg:my-8 my-5">
+        <div class="flex justify-between w-full items-center space-x-4 lg:my-8 my-3">
             <!-- website logo -->
             <a class="text-5xl font-semibold" href="index.html">
                 <img class="h-[26px] lg:h-[32px]" src="{{$main->getFirstMediaUrl('default')}}" alt="logo" />
@@ -62,10 +62,10 @@
         </ul>
     </nav>
 
-    <nav x-cloak @click.outside="nav = false" x-collapse
-         class="lg:hidden shadow-2xl bg-white z-10 fixed w-full"
+    <nav x-cloak @click.outside="nav = false"
+         class="lg:hidden shadow-2xl bg-white dark:bg-gray-600 z-10 fixed w-full z-50"
          x-show="nav">
-        <ul class="block shadow-md absolute left-0 top-10 w-full bg-white capitalize">
+        <ul class="block shadow-md absolute dark:bg-gray-700 left-0 top-7 w-full bg-white capitalize py-2">
             <li>
                 <a class="{{Route::is('home')?'menu-active':'menu'}}" href="{{route('home')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-house"></i></span>@lang('home')</a>
             </li>
@@ -86,9 +86,13 @@
             </li>
             @can('isAdmin')
                 <li>
-                    <a class="{{Route::is('setting')?'menu-active':'menu'}}" href="{{route('setting')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-settings"></i></span>@lang('setting')</a>
+                    <a class="{{Route::is('setting')?'menu-active':'menu'}}" href="{{route('setting')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('setting')</a>
                 </li>
             @endcan
+            <li>
+                <a class="{{Route::is('login')?'menu-active':'menu'}}" href="{{route('login')}}"><span class="mr-2 text-xl"><i class="fas fa-sign-in"></i></span>@lang('login')</a>
+            </li>
+
 
         </ul>
     </nav>

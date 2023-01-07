@@ -27,10 +27,11 @@
     </head>
     @php
         $main = \App\Models\Setup::first();
-
+        $a = explode('media', $main->getFirstMediaPath('main_image', 'thumb'))[1];
     @endphp
     <body x-data="{nav: false, dark: $persist(false)}" :class="{'dark': dark}" >
-    <div class="bg-homeBgs bg-[url('../../public/images/background/bg.jpg')] min-h-screen dark:bg-[url('../../public/images/background/bg-dark.jpg')] bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full">
+    <div class="bg-[url('../../public/images/background/bg.jpg')] min-h-screen dark:bg-[url('../../public/images/background/bg-dark.jpg')]
+    bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full">
         <div class="z-50">
             <div class="lg:mx-40">
                 @include('layouts.header')
