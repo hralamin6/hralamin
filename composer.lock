@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a20c2b4a65060b8636dfb8cccdf1c1fd",
+    "content-hash": "c9a210f6223e140bf1e7d5dda8779fc8",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -3725,16 +3725,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "10.2.0",
+            "version": "9.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "06a0e949c9d9c64be208993be0f79a54cd8680cb"
+                "reference": "9ed0f4a6017f8f0b5b4ef2d9ee7a89a0d0e4919d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/06a0e949c9d9c64be208993be0f79a54cd8680cb",
-                "reference": "06a0e949c9d9c64be208993be0f79a54cd8680cb",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/9ed0f4a6017f8f0b5b4ef2d9ee7a89a0d0e4919d",
+                "reference": "9ed0f4a6017f8f0b5b4ef2d9ee7a89a0d0e4919d",
                 "shasum": ""
             },
             "require": {
@@ -3817,7 +3817,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/10.2.0"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.12.2"
             },
             "funding": [
                 {
@@ -3829,7 +3829,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-17T15:42:26+00:00"
+            "time": "2022-03-22T13:27:17+00:00"
         },
         {
             "name": "spatie/temporary-directory",

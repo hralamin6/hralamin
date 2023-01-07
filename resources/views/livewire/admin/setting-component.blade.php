@@ -76,6 +76,9 @@
                         <div class="flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                             <label class="cursor-pointer flex justify-between gap-2">
                                 @lang('choose logo') <input type="file" class="hidden" wire:model.lazy="logo">
+                                @if ($logo)
+                                    <img src="{{ $logo->temporaryUrl() }}">
+                                @endif
                                 <img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('default')}}" alt="">
                                 @error('logo')<span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span>@enderror
                             </label>
