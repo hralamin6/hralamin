@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Setup;
 use Livewire\Component;
 
 class WorkComponent extends Component
 {
     public function render()
     {
-        return view('livewire.work-component');
+        $main = Setup::first();
+        return view('livewire.work-component', compact('main'));
     }
 }

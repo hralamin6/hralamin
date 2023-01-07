@@ -34,10 +34,10 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('isUser', function ($user){
             return $user->type == 'user';
         });
-        if(Schema::hasTable('setups')) {
-            View::share('main', Setup::first());
-        } else {
-            View::share('main', []);
-        }
+//        if(Schema::hasTable('setups')) {
+//            View::share('main', Setup::first());
+//        } else {
+//            View::share('main', []);
+//        }
     }
 }

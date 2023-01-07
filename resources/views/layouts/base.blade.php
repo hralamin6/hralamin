@@ -25,6 +25,10 @@
         </style>
 
     </head>
+    @php
+        $main = \App\Models\Setup::first();
+
+    @endphp
     <body x-data="{nav: false, dark: $persist(false)}" :class="{'dark': dark}" >
     <div class="bg-homeBgs bg-[url('../../public/images/background/bg.jpg')] min-h-screen dark:bg-[url('../../public/images/background/bg-dark.jpg')] bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full">
         <div class="z-50">
