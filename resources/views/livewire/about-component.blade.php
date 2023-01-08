@@ -3,31 +3,30 @@
         <div data-aos="fade" class="aos-init aos-animate">
             <div class="py-12">
                 <!-- about page title -->
-                <h2 class="after-effect after:left-52 font-semibold mt-12 lg:mt-0 text-4xl dark:text-white">About Me</h2>
+                <h2 class="after-effect after:left-52 font-semibold mt-12 lg:mt-0 text-4xl dark:text-white">@lang('about me')</h2>
                 <div class="grid grid-cols-12 md:gap-10 pt-4 md:pt-[40px] items-center">
                     <div class="col-span-12 md:col-span-4">
                         <!-- about me image -->
                         <img class="w-full md:w-[330px] md:h-[400px] object-cover overflow-hidden rounded-[35px] mb-3 md:mb-0"
-                             src="{{$main->getFirstMediaUrl('about_image', 'thumb')}}" alt="about avatar" />
+                             src="{{$main->getFirstMediaUrl('about_image', 'thumb')}}" alt="about avatar" onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';" />
                     </div>
                     <div class="col-span-12 md:col-span-8 space-y-2.5">
                         <!-- who am i content  -->
                         <div class="md:mr-12 xl:mr-16">
-                            <h3 class="text-4xl text-gray-900 font-medium dark:text-white mb-2.5">Who am i?</h3>
+                            <h3 class="text-4xl text-gray-900 font-medium dark:text-white mb-2.5 capitalize">@lang('who am i')?</h3>
                             <p class="text-gray-lite dark:text-color-910 leading-7 text-gray-600"> {{$main->about}} </p>
                         </div>
 
                         <!-- personal info -->
-                        <div>
-                            <h3 class="text-4xl font-medium my-5 dark:text-white">Personal Info</h3>
+                        <div class="capitalize">
+                            <h3 class="text-4xl font-medium my-5 dark:text-white">@lang('personal info')</h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="flex">
                                     <span class="text-green-500 bg-white dark:bg-gray-800 shadow-md mr-2.5 flex items-center justify-center rounded-md text-2xl w-12 text-">
                                         <i class="fa-solid fa-mobile-screen-button"></i>
                                     </span>
                                     <div class="space-y-1">
-                                        <p class="text-xs text-gray-500 dark:text-color-910">Phone
-                                        </p>
+                                        <p class="text-xs text-gray-500 dark:text-color-910">@lang('phone')</p>
                                         <h6 class="font-medium dark:text-white">{{$main->phone}}</h6>
                                     </div>
                                 </div>
@@ -38,8 +37,7 @@
                                                         <i class="fa-solid fa-location-dot"></i>
                                                     </span>
                                     <div class="space-y-1">
-                                        <p class="text-xs text-gray-500 dark:text-color-910"> Location
-                                        </p>
+                                        <p class="text-xs text-gray-500 dark:text-color-910">@lang('address')</p>
                                         <h6 class="font-medium dark:text-white">{{$main->location}}</h6>
                                     </div>
                                 </div>
@@ -50,8 +48,7 @@
                                                         <i class="fa-solid fa-envelope-open-text"></i>
                                                     </span>
                                     <div class="space-y-1">
-                                        <p class="text-xs text-gray-500 dark:text-color-910"> Email
-                                        </p>
+                                        <p class="text-xs text-gray-500 dark:text-color-910">@lang('email')</p>
                                         <h6 class="font-medium dark:text-white">{{$main->email}}</h6>
                                     </div>
                                 </div>
@@ -62,8 +59,7 @@
                                                         <i class="fa-solid fa-calendar-days"></i>
                                                     </span>
                                     <div class="space-y-1">
-                                        <p class="text-xs text-gray-500 dark:text-color-910"> Birthday
-                                        </p>
+                                        <p class="text-xs text-gray-500 dark:text-color-910">@lang('birthday')</p>
                                         <h6 class="font-medium dark:text-white">{{$main->date_of_birth}}</h6>
                                     </div>
                                 </div>
@@ -74,116 +70,27 @@
             </div>
 
             <!-- whai i do contain -->
-            <div class="pb-12">
-                <h3 class="text-[35px] dark:text-white font-medium pb-5"> What I do! </h3>
+            <div class="pb-12 capitalize">
+                <h3 class="text-[35px] dark:text-white font-medium pb-5">@lang('what i do')! </h3>
                 <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                    <div class="flex p-6 gap-4 dark:bg-transparent bg-[#fcf4ff]">
-                        <img class="w-10 h-10 object-contain block" src="images/icons/icon.svg"
-                             alt="icon" />
+                    @foreach($abilities as $i=> $ability)
+                    <div class="flex p-6 gap-4 dark:bg-transparent {{$i%2==0?'bg-green-50':'bg-purple-50'}}  dark:border-2 dark:border-gray-700 rounded-md">
+               <span class="items-center justify-center rounded-md text-4xl {{$i%2==0?'text-indigo-400':'text-pink-400'}}">
+               <i class="{{$ability->icon}}"></i></span>
                         <div class="space-y-2">
-                            <h3 class="dark:text-white text-2xl font-semibold"> Ui/Ux Design </h3>
-                            <p class="leading-8 text-gray-500 dark:text-[#A6A6A6]"> Lorem ipsum dolor
-                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
+                            <h3 class="dark:text-white text-2xl font-semibold">{{$ability->title}}</h3>
+                            <p class="leading-8 text-gray-500 dark:text-[#A6A6A6]">{{$ability->body}}</p>
                         </div>
                     </div>
-
-                    <div class="flex p-6 gap-4 dark:bg-transparent bg-[#fefaf0]">
-                        <img class="w-10 h-10 object-contain block" src="images/icons/icon1.svg"
-                             alt="icon" />
-                        <div class="space-y-2">
-                            <h3 class="dark:text-white text-2xl font-semibold"> App Development </h3>
-                            <p class="leading-8 text-gray-500 dark:text-[#A6A6A6]"> Lorem ipsum dolor
-                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
-                        </div>
-                    </div>
-
-                    <div class="flex p-6 gap-4 dark:bg-transparent bg-[#fcf4ff]">
-                        <img class="w-10 h-10 object-contain block" src="images/icons/icon2.svg"
-                             alt="icon" />
-                        <div class="space-y-2">
-                            <h3 class="dark:text-white text-2xl font-semibold"> Photography </h3>
-                            <p class="leading-8 text-gray-500 dark:text-[#A6A6A6]"> Lorem ipsum dolor
-                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
-                        </div>
-                    </div>
-
-                    <div class="flex p-6 gap-4 dark:bg-transparent bg-[#fff4f4]">
-                        <img class="w-10 h-10 object-contain block" src="images/icons/icon3.svg"
-                             alt="icon" />
-                        <div class="space-y-2">
-                            <h3 class="dark:text-white text-2xl font-semibold"> Photography </h3>
-                            <p class="leading-8 text-gray-500 dark:text-[#A6A6A6]"> Lorem ipsum dolor
-                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
-                        </div>
-                    </div>
-
-                    <div class="flex p-6 gap-4 dark:bg-transparent bg-[#fff0f8]">
-                        <img class="w-10 h-10 object-contain block" src="images/icons/icon4.svg"
-                             alt="icon" />
-                        <div class="space-y-2">
-                            <h3 class="dark:text-white text-2xl font-semibold"> Managment </h3>
-                            <p class="leading-8 text-gray-500 dark:text-[#A6A6A6]"> Lorem ipsum dolor
-                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
-                        </div>
-                    </div>
-
-                    <div class="flex p-6 gap-4 dark:bg-transparent bg-[#f3faff]">
-                        <img class="w-10 h-10 object-contain block" src="images/icons/icon5.svg"
-                             alt="icon" />
-                        <div class="space-y-2">
-                            <h3 class="dark:text-white text-2xl font-semibold"> Web Development </h3>
-                            <p class="leading-8 text-gray-500 dark:text-[#A6A6A6]"> Lorem ipsum dolor
-                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- what i do contain end -->
-            <div>
-                <div class="bg-[#F8FBFB] dark:bg-[#0D0D0D] max-w-full h-auto py-10 rounded-xl">
-                    <h3 class="text-center dark:text-white text-3xl mb-3 font-semibold">Clients</h3>
-                    <!-- slider and slider items start -->
-                    <div class="flex gap-20 px-2 pt-8">
-                        <div>
-                            <img class="overflow-hidden brand-img" src="images/slider/brand.png"
-                                 alt="brand" />
-                        </div>
-                        <div>
-                            <img class="overflow-hidden brand-img" src="images/slider/brand1.png"
-                                 alt="brand" />
-                        </div>
-                        <div>
-                            <img class="overflow-hidden brand-img" src="images/slider/brand2.png"
-                                 alt="brand" />
-                        </div>
-                        <div>
-                            <img class="overflow-hidden brand-img" src="images/slider/brand3.png"
-                                 alt="brand" />
-                        </div>
-                        <div>
-                            <img class="overflow-hidden brand-img" src="images/slider/brand4.png"
-                                 alt="brand" />
-                        </div>
-                        <div>
-                            <img class="overflow-hidden brand-img" src="images/slider/brand1.png"
-                                 alt="brand" />
-                        </div>
-                        <div>
-                            <img class="overflow-hidden brand-img" src="images/slider/brand1.png"
-                                 alt="brand" />
-                        </div>
-                    </div>
-                    <!-- slider and slider items end -->
+                    @endforeach
                 </div>
             </div>
 
             <!-- footer section start -->
-            <footer class="overflow-hidden rounded-b-2xl">
-                <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} All Rights Reserved
-                    by <a class="hover:text-[#FA5252] duration-300 transition"
-                          href="{{$main->site_url}}" target="_blank"
-                          rel="noopener noreferrer">{{$main->name}}</a>. </p>
+            <footer class="overflow-hidden rounded-b-2xl capitalize">
+                <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} @lang('all rights reserved')
+                    by <a class="text-pink-400 duration-300 transition"
+                          href="{{$main->site_url}}" target="_blank">{{$main->name}}</a>. </p>
             </footer>
             <!-- footer section end -->
         </div>

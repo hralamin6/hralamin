@@ -2,7 +2,7 @@
          data-aos="fade">
         <!-- personal image -->
         <img class="rounded-full w-[250px] h-[250px] 2xl:w-[280px] 2xl:h-[280px]"
-             src="{{$main->getFirstMediaUrl('main_image', 'thumb')}}" alt="about avatar" />
+             src="{{$main->getFirstMediaUrl('main_image', 'thumb')}}" alt="about avatar" onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';" />
         <h3 class="mt-6 mb-1 text-2xl font-semibold dark:text-white">{{$main->name}}</h3>
         <p class="mb-4 text-[#7B7B7B]">{{$main->designation}}</p>
         <!-- social link and social  buttons -->

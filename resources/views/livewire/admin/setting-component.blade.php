@@ -76,10 +76,8 @@
                         <div class="flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                             <label class="cursor-pointer flex justify-between gap-2">
                                 @lang('choose logo') <input type="file" class="hidden" wire:model.lazy="logo">
-                                @if ($logo)
-                                    <img src="{{ $logo->temporaryUrl() }}">
-                                @endif
-                                <img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('default')}}" alt="">
+                                @if ($logo)<img class="w-16 h-16" src="{{ $logo->temporaryUrl() }}">
+                                @else<img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('default')}}" alt="logo">@endif
                                 @error('logo')<span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span>@enderror
                             </label>
                             <button wire:click.prevent="logoUpdate" type="button" class="menu-active w-24 capitalize h-8">@lang('update')</button>
@@ -88,7 +86,8 @@
                         <div class="flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                             <label class="cursor-pointer flex justify-between gap-2">
                                 @lang('choose main image') <input type="file" class="hidden" wire:model.lazy="main_image">
-                                <img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('main_image', 'thumb')}}" alt="">
+                                @if ($main_image)<img class="w-16 h-16" src="{{ $main_image->temporaryUrl() }}">@endif
+                               <img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('main_image', 'thumb')}}" alt="">
                                 @error('main_image')<span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span>@enderror
                             </label>
                             <div x-cloak x-show="isUploading"><progress max="100" x-bind:value="progress"></progress></div>
@@ -97,7 +96,8 @@
                         <div class="flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                             <label class="cursor-pointer flex justify-between gap-2">
                                 @lang('choose about image') <input type="file" class="hidden" wire:model.lazy="about_image">
-                                <img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('about_image', 'thumb')}}" alt="">
+                                @if ($about_image)<img class="w-16 h-16" src="{{ $about_image->temporaryUrl() }}">
+                                @else <img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('about_image', 'thumb')}}" alt="">@endif
                                 @error('about_image')<span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span>@enderror
                             </label>
                             <div x-cloak x-show="isUploading"><progress max="100" x-bind:value="progress"></progress></div>

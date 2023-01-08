@@ -85,7 +85,7 @@ class SettingComponent extends Component
         if ($this->main_image){
             $this->setup->clearMediaCollection('main_image');
             $a = $this->setup->addMedia($this->main_image->getRealPath())->toMediaCollection('main_image');
-            unlink("media/".$a->id.'/'. $a->file_name);
+            unlink("storage/media/".$a->id.'/'. $a->file_name);
             $this->alert('success', __('Data updated successfully'));
 
             $this->reset('main_image');
@@ -100,7 +100,7 @@ class SettingComponent extends Component
         if ($this->about_image){
             $this->setup->clearMediaCollection('about_image');
             $a = $this->setup->addMedia($this->about_image->getRealPath())->toMediaCollection('about_image');
-            unlink("media/".$a->id.'/'. $a->file_name);
+            unlink("storage/media/".$a->id.'/'. $a->file_name);
             $this->alert('success', __('Data updated successfully'));
 
             $this->reset('about_image');

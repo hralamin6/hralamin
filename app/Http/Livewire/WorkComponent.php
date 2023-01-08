@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Setup;
+use App\Models\Work;
 use Livewire\Component;
 
 class WorkComponent extends Component
@@ -10,6 +11,7 @@ class WorkComponent extends Component
     public function render()
     {
         $main = Setup::first();
-        return view('livewire.work-component', compact('main'));
+        $works = Work::where('status', 'active')->get();
+        return view('livewire.work-component', compact('main', 'works'));
     }
 }
