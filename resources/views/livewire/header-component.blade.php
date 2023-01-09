@@ -1,25 +1,25 @@
-<header x-data="{nav: false}" class="flex justify-between items-center fixed top-0 left-0 w-full lg:static z-[1111111111]">
+<header x-data="{nav: false}" class="flex justify-between items-center fixed top-0 left-0 w-full lg:static z-10">
     <div class="flex justify-between w-full lg:px-0 bg-[#F3F6F6] lg:bg-transparent dark:bg-black">
         <div class="flex justify-between w-full items-center space-x-4 lg:my-8 my-3">
             <!-- website logo -->
-            <a class="" href="{{route('home')}}">
-                <img class="h-[26px] lg:h-[32px]" src="{{$main->getFirstMediaUrl('default')}}" alt="logo"
+            <a class="mx-2 max-h-10 overflow-hidden object-contain w-24" href="{{route('home')}}">
+                <img class="" src="{{$main->getFirstMediaUrl('default')}}" alt="logo"
                      onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';"/>
             </a>
             @auth()
-                <div class="hidden">
-                    <a wire:click.prevent="logout" class="{{Route::is('logout')?'menu-active':'menu'}} cursor-pointer"><span class="mr-2 text-xl"><i class="fas fa-sign-out"></i></span>@lang('logout')</a>
+                <div class="lg:hidden">
+                    <a wire:click.prevent="logout" class="{{Route::is('logout')?'menu-active':'menu'}} cursor-pointer"><span class="mr-2"><i class="fas fa-sign-out"></i></span>@lang('logout')</a>
                 </div>
             @else
-                <div class="hidden">
-                    <a class="{{Route::is('login')?'menu-active':'menu'}}" href="{{route('login')}}"><span class="mr-2 text-xl"><i class="fas fa-sign-in"></i></span>@lang('login')</a>
+                <div class="lg:hidden">
+                    <a class="{{Route::is('login')?'menu-active':'menu'}}" href="{{route('login')}}"><span class="mr-2"><i class="fas fa-sign-in"></i></span>@lang('login')</a>
                 </div>
             @endauth
             <div class="flex items-center">
                 <div class="relative inline-block text-left lg:hidden" x-data="{lang:false}">
                     <div>
                     <span class="rounded-full shadow-sm">
-                        <button @click="lang=!lang" @click.stop type="button" class="menu capitalize"><span class="mr-2 text-base"><i class="fas fa-language"></i></span> {{session()->get('locale')}}</button>
+                        <button @click="lang=!lang" @click.stop type="button" class="menu capitalize"><span class="mr-2"><i class="fas fa-language"></i></span> {{session()->get('locale')}}</button>
                     </span>
                     </div>
                     <div x-show="lang" @click.outside="lang=false" @click="lang=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
@@ -41,9 +41,6 @@
                     <i x-show="!nav" class="fa-solid fa-bars text-xl"></i>
                     <i x-show="nav" class="fa-solid fa-xmark text-xl"></i>
                 </button>
-
-
-
             </div>
         </div>
     </div>
