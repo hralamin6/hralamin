@@ -1,48 +1,17 @@
-@extends('layouts.app')
-
-@section('content')
-
-            @include('layouts.header')
-            <!-- Home page contant start -->
-            <div class="flex flex-col items-center h-[100vh] md:h-[90vh] lg:h-[80vh] xl:h-[71vh] justify-center aos-init aos-animate"
-                 data-aos="fade">
-                <!-- personal image -->
-                <img class="rounded-full w-[250px] h-[250px] 2xl:w-[280px] 2xl:h-[280px]"
-                     src="{{asset('images/about/avatar.jpg')}}" alt="about avatar" />
-                <h3 class="mt-6 mb-1 text-5xl font-semibold dark:text-white"> Monalisa Ashley </h3>
-                <p class="mb-4 text-[#7B7B7B]">Ui/Ux Designer</p>
-                <!-- social link and social  buttons -->
-                <div class="flex space-x-3">
-                    <!-- facebook link -->
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                            <span class="socialbtn text-[#1773EA]">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </span>
-                    </a>
-                    <!-- twitter link -->
-                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-                            <span class="socialbtn text-[#1C9CEA]">
-                                <i class="fa-brands fa-twitter"></i>
-                            </span>
-                    </a>
-                    <!-- dribbble icon and link -->
-                    <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer">
-                            <span class="socialbtn text-[#e14a84]">
-                                <i class="fa-brands fa-dribbble"></i>
-                            </span>
-                    </a>
-                    <!-- linkedin icon and link -->
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                            <span class="socialbtn text-[#0072b1]">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </span>
-                    </a>
-                </div>
-                <!-- dowanload button -->
-                <button class="dowanload-btn">
-                    <img src="{{asset('images/icons/dowanload.png')}}" alt="icon" class="mr-2" />Download CV </button>
-            </div>
-
-<!-- Mirrored from bostamihtml.ibthemespro.com/homePage.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jan 2023 12:41:12 GMT -->
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<div class="w-full max-w-xs mx-auto py-12 px-6">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="text-center mb-8">
+            <img src="https://your-company-logo.com/logo.png" alt="Company Logo" class="h-12 w-auto mx-auto mb-4">
+            <h1 class="text-2xl font-bold text-gray-800">{{ $mailData['name'] }}</h1>
+            <p class="text-gray-600">{{ $mailData['email'] }}</p>
+        </div>
+        <p class="mb-6 text-gray-700">{{ $mailData['message'] }}</p>
+    </div>
+</div>
+</body>
 </html>
-@endsection

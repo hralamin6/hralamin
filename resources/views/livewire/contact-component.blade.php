@@ -55,9 +55,10 @@
                             <form id="myForm" action="https://formspree.io/f/xoqrgaab" method="POST">
                                 <!-- name input -->
                                 <div class="relative z-0 w-full mt-[40px] mb-8 group">
-                                    <input type="text" id="name" name="name"
+                                    <input type="text" id="name" wire:model.lazy="name" name="name"
                                            class="block autofill:bg-transparent py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#FF6464] peer"
                                            placeholder=" " required="" />
+                                    @error('name')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                                     <label for="name"
                                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF6464] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Name
                                         *</label>
@@ -65,9 +66,11 @@
 
                                 <!-- email input  -->
                                 <div class="relative z-0 w-full mb-8 group">
-                                    <input type="email" name="user_email"
+                                    <input type="email" wire:model.lazy="email" name="user_email"
                                            class="block autofill:text-red-900 needed py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#5185D4] peer"
                                            placeholder=" " id="user_email" required="" />
+                                    @error('email')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
+
                                     <label for="user_email"
                                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#5185D4] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Email
                                         *</label>
@@ -75,21 +78,16 @@
 
                                 <!-- massage input -->
                                 <div class="relative z-0 w-full mb-8 group">
-                                    <input type="text" name="message"
+                                    <input type="text" wire:model.lazy="message" name="message"
                                            class="block autofill:bg-yellow-200 py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#CA56F2] peer"
                                            placeholder=" " id="message" required="" />
+                                    @error('message')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
+
                                     <label for="message"
                                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#CA56F2] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Message
                                         *</label>
                                 </div>
-
-                                <div
-                                    class="transition-all duration-300 ease-in-out inline-block hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] rounded-lg mt-3">
-                                    <!-- submit buttons -->
-                                    <input type="submit"
-                                           class="transition ease-in duration-200 font-semibold cursor-pointer border-color-910 hover:border-transparent px-6 py-2 rounded-lg border-[2px] hover:text-white dark:text-white"
-                                           value="Submit" />
-                                </div>
+                                <button class="menu bg-green-300" wire:click.prevent="index">Send</button>
                             </form>
                         </div>
                     </div>

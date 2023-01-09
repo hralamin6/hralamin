@@ -8,10 +8,13 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', \App\Http\Livewire\HomeComponent::class)->name('home');
 Route::get('/work', \App\Http\Livewire\WorkComponent::class)->name('work');
+Route::get('/work/{id}', \App\Http\Livewire\WorkDetailsComponent::class)->name('work.details');
 Route::get('/resume', \App\Http\Livewire\ResumeComponent::class)->name('resume');
 Route::get('/contact', \App\Http\Livewire\ContactComponent::class)->name('contact');
 Route::get('/blog', \App\Http\Livewire\BlogComponent::class)->name('blog');

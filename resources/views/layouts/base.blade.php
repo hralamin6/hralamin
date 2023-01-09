@@ -30,15 +30,7 @@
         $main = \App\Models\Setup::first();
     @endphp
     <body x-data="{nav: false, dark: $persist(false)}" :class="{'dark': dark}" >
-    <div class="bg-[url('../../public/images/background/bg.jpg')] min-h-screen dark:bg-[url('../../public/images/background/bg-dark.jpg')]
-    bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full font-serif">
-        <div class="z-50">
-            <div class="lg:mx-40">
-                @livewire('header-component')
                 @yield('body')
-            </div>
-        </div>
-    </div>
         <script src="{{ asset('js/sa.js') }}"></script>
         <x-livewire-alert::scripts />
         <script src="{{ asset('js/spa.js') }}" data-turbolinks-eval="false"></script>

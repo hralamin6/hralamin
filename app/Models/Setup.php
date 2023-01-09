@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -24,7 +25,7 @@ class Setup extends Model implements HasMedia
     {
         $this->addMediaCollection('default')->onlyKeepLatest(1);;
         $this->addMediaConversion('thumb')->performOnCollections('main_image', 'about_image')
-            ->width(560)->height(560)->sharpen(10);
+            ->fit(Manipulations::FIT_CROP, 600, 600)->nonQueued();
     }
 
 }

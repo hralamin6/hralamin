@@ -19,6 +19,8 @@ class SettingComponent extends Component
     public $logo, $main_image, $about_image;
     public function mount()
     {
+        app()->setLocale(\session()->get('locale'));
+
         $setup = Setup::first();
          $this->name = $setup->name;
          $this->designation = $setup->designation;

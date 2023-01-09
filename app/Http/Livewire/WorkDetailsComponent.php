@@ -6,18 +6,18 @@ use App\Models\Setup;
 use App\Models\Work;
 use Livewire\Component;
 
-class WorkComponent extends Component
+class WorkDetailsComponent extends Component
 {
-    public function mount()
+    public $work;
+    public function mount($id)
     {
         app()->setLocale(\session()->get('locale'));
 
+        $this->work = Work::where('id', $id)->firstOrFail();
     }
-
     public function render()
     {
         $main = Setup::first();
-        $works = Work::where('status', 'active')->get();
-        return view('livewire.work-component', compact('main', 'works'));
+        return view('livewire.work-details-component', compact('main'));
     }
 }

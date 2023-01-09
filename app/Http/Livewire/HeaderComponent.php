@@ -5,43 +5,35 @@ namespace App\Http\Livewire;
 use App\Models\Setup;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class HeaderComponent extends Component
 {
+    public $locale;
 
-    public function changeLang($lang)
+    public function mount()
     {
-//        if (session()->has('locale')){
-//            if (session()->get('locale')=='en'){
-//                App::setLocale('bn');
-//                session()->put('locale', 'bn');
-//            }else{
-//                App::setLocale('en');
-//                session()->put('locale', 'en');
-//            }
-//            return redirect()->to(url()->previous());
-//        }else{
-            App::setLocale($lang);
-            session()->put('locale', $lang);
-//            dd($lang);
-//        }
-
+        if (\session()->has('locale')){
+            app()->setLocale(\session()->get('locale'));
+        }else{
+            \session()->put('locale', app()->getLocale());
+        }
     }
+    public function updatedLocale()
+    {
+        \session()->put('locale', $this->locale);
+        $this->mount();
+    }
+
 
     public function logout()
     {
         Auth::logout();
-
         return redirect(route('home'));
-
     }
     public function render()
     {
-        if (session()->has('locale')){
-                App::setLocale(session()->get('locale'));
-        }
-
         $main = Setup::first();
         return view('livewire.header-component', compact('main'));
     }

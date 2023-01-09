@@ -18,6 +18,7 @@ class WorkComponent extends Component
     public $images=[], $main_image, $about_image;
     public function mount($id=null)
     {
+        app()->setLocale(\session()->get('locale'));
 
         if ($id!=null){
             $this->editmode = true;
@@ -116,6 +117,12 @@ class WorkComponent extends Component
         $this->mount($work->id);
     }
 
+    public function confirmDeletion(Work $work)
+    {
+        $work->delete();
+        $this->alert('success', __('Data deleted successfully'));
+
+    }
     public function render()
     {
         $this->authorize('isAdmin');

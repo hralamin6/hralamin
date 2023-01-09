@@ -7,6 +7,12 @@ use Livewire\Component;
 
 class HomeComponent extends Component
 {
+    public function mount()
+    {
+        app()->setLocale(\session()->get('locale'));
+
+    }
+
     public function render()
     {
         $main = Setup::first();

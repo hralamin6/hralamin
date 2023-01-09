@@ -25,9 +25,9 @@
                     <div x-show="lang" @click.outside="lang=false" @click="lang=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                         <div class="rounded-md bg-white dark:bg-gray-800 shadow-xs">
                             <div class="py-1">
-                                <a wire:click.prevent="changeLang('bn')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('bangla')</a>
-                                <a wire:click.prevent="changeLang('en')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('english')</a>
-                                <a wire:click.prevent="changeLang('ar')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('arabic')</a>
+                                <a wire:click.prevent="$set('locale', 'bn')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('bangla')</a>
+                                <a wire:click.prevent="$set('locale', 'en')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('english')</a>
+                                <a wire:click.prevent="$set('locale', 'ar')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('arabic')</a>
                             </div>
                         </div>
                     </div>
@@ -69,10 +69,10 @@
             @can('isAdmin')
                 @auth()
                     <li>
-                        <a class="{{Route::is('setting')?'menu-active':'menu'}}" href="{{route('admin.work')}}"><span class="mr-2 text-base"><i class="fa-solid fa-cog"></i></span>@lang('work')</a>
+                        <a data-turbolinks="false" class="{{Route::is('admin.work')?'menu-active':'menu'}}" href="{{route('admin.work')}}"><span class="mr-2 text-base"><i class="fa-solid fa-cog"></i></span>@lang('work')</a>
                     </li>
                     <li>
-                        <a class="{{Route::is('setting')?'menu-active':'menu'}}" href="{{route('admin.setting')}}"><span class="mr-2 text-base"><i class="fa-solid fa-cog"></i></span>@lang('setting')</a>
+                        <a class="{{Route::is('admin.setting')?'menu-active':'menu'}}" href="{{route('admin.setting')}}"><span class="mr-2 text-base"><i class="fa-solid fa-cog"></i></span>@lang('setting')</a>
                     </li>
                 @endauth
             @endcan
@@ -85,9 +85,9 @@
                 <div x-show="lang" @click.outside="lang=false" @click="lang=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                     <div class="rounded-md bg-white dark:bg-gray-800 shadow-xs">
                         <div class="py-1">
-                            <a wire:click.prevent="changeLang('bn')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('bangla')</a>
-                            <a wire:click.prevent="changeLang('en')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('english')</a>
-                            <a wire:click.prevent="changeLang('ar')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('arabic')</a>
+                            <a wire:click.prevent="$set('locale', 'bn')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('bangla')</a>
+                            <a wire:click.prevent="$set('locale', 'en')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('english')</a>
+                            <a wire:click.prevent="$set('locale', 'ar')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('arabic')</a>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                         <a class="{{Route::is('admin.setting')?'menu-active':'menu'}}" href="{{route('admin.setting')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('setting')</a>
                     </li>
                     <li>
-                        <a class="{{Route::is('admin.work')?'menu-active':'menu'}}" href="{{route('admin.work')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('work')</a>
+                        <a data-turbolinks="false" class="{{Route::is('admin.work')?'menu-active':'menu'}}" href="{{route('admin.work')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('work')</a>
                     </li>
                 @endauth
 
