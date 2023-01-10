@@ -1,23 +1,93 @@
 <html>
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Define a table style for the resume */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Define a style for the table cells */
+        td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+
+        /* Define a style for the table headers */
+        th {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+            background-color: #dddddd;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-<div class="w-full max-w-xs mx-auto py-12 px-6">
-    <div class="bg-white rounded-lg shadow-lg p-8">
-        <div class="text-center mb-8">
-            <img src="https://your-company-logo.com/logo.png" alt="Company Logo" class="h-12 w-auto mx-auto mb-4">
-            <h1 class="text-2xl font-bold text-gray-800">Welcome to Our Company</h1>
-            <p class="text-gray-600">We're glad you're here!</p>
-        </div>
-        <p class="mb-6 text-gray-700">Thank you for signing up for our service. We're excited to have you on board and can't wait to see what you'll accomplish with us.</p>
-        <p class="mb-6 text-gray-700">If you have any questions or need help getting started, don't hesitate to reach out to our support team. We're here to help you succeed.</p>
-        <div class="flex items-center justify-center mt-8">
-            <a href="https://your-company-website.com" class="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
-                Explore Our Website
-            </a>
-        </div>
-    </div>
-</div>
+<body>
+<table>
+    <tr>
+        <th colspan="2">John Doe</th>
+    </tr>
+    <tr>
+        <td>Contact Information</td>
+        <td>
+            Phone: 555-555-5555<br>
+            Email: johndoe@example.com<br>
+            Address: 123 Main St, Anytown USA 00000
+        </td>
+    </tr>
+    <tr>
+        <td>Summary</td>
+        <td>
+            Experienced software developer with a proven track record of delivering high-quality, scalable applications. Skilled in a variety of programming languages, including C++, Python, and JavaScript. Strong ability to work in a team environment and adapt to new technologies.
+        </td>
+    </tr>
+    <tr>
+        <td>Experience</td>
+        <td>
+            <table>
+                <tr>
+                    <th>Company</th>
+                    <th>Job Title</th>
+                    <th>Dates</th>
+                </tr>
+                <tr>
+                    <td>Example Co.</td>
+                    <td>Senior Software Developer</td>
+                    <td>January 2020 - Present</td>
+                </tr>
+                <tr>
+                    <td>Acme Inc.</td>
+                    <td>Software Developer</td>
+                    <td>June 2015 - December 2019</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>Education</td>
+        <td>
+            <table>
+                <tr>
+                    <th>Degree</th>
+                    <th>Major</th>
+                    <th>University</th>
+                    <th>Dates</th>
+                </tr>
+                <tr>
+                    <td>Bachelor of Science</td>
+                    <td>Computer Science</td>
+                    <td>University of XYZ</td>
+                    <td>2011-2015</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>Skills</td>
+        <td>
+            C++, Python, JavaScript, Git, Agile development, Linux, HTML, CSS, SQL
+        </td>
+    </tr>
+</table>
 </body>
 </html>

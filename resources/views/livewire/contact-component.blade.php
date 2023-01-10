@@ -1,8 +1,8 @@
 <div class="bg-white lg:rounded-2xl dark:bg-[#111111]">
-    <div data-aos="fade" class="aos-init aos-animate">
+    <div data-aos="fade" class="aos-init aos-animate capitalize">
         <div class="container px-4 sm:px-5 md:px-10 lg:px-20">
             <div class="py-12">
-                <h2 class="after-effect after:left-52 font-semibold mt-12 lg:mt-0 text-4xl dark:text-white mb-8"> Contact </h2>
+                <h2 class="after-effect after:left-52 capitalize font-semibold mt-12 lg:mt-0 text-4xl dark:text-white mb-8">@lang('contact')</h2>
                 <div class="lg:flex gap-x-20">
                     <!-- personal contact information -->
                     <div class="w-full lg:w-[40%] xl:w-[30%] space-y-6">
@@ -13,7 +13,7 @@
                                                      class="text-4xl dark:text-white" />
                                             </span>
                             <div class="space-y-2">
-                                <p class="text-xl font-semibold dark:text-white"> Phone : </p>
+                                <p class="text-xl font-semibold dark:text-white">@lang('phone') : </p>
                                 <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->phone}}</p>
                                 <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->phone_two}}</p>
                             </div>
@@ -26,7 +26,7 @@
                                                      class="text-4xl dark:text-white" />
                                             </span>
                             <div class="space-y-2">
-                                <p class="text-xl font-semibold dark:text-white"> Email : </p>
+                                <p class="text-xl font-semibold dark:text-white"> @lang('email') : </p>
                                 <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->email}}</p>
                                 <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->email_two}}</p>
                             </div>
@@ -39,7 +39,7 @@
                                                      class="text-4xl dark:text-white" />
                                             </span>
                             <div class="space-y-2">
-                                <p class="text-xl font-semibold dark:text-white"> Address : </p>
+                                <p class="text-xl font-semibold dark:text-white"> @lang('address') : </p>
                                 <p class="text-gray-lite text-lg dark:text-[#A6A6A6]">{{$main->location}}</p>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                            placeholder=" " required="" />
                                     @error('name')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                                     <label for="name"
-                                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF6464] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Name
+                                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF6464] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">@lang('name')
                                         *</label>
                                 </div>
 
@@ -72,7 +72,7 @@
                                     @error('email')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
 
                                     <label for="user_email"
-                                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#5185D4] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Email
+                                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#5185D4] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">@lang('email')
                                         *</label>
                                 </div>
 
@@ -84,10 +84,10 @@
                                     @error('message')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
 
                                     <label for="message"
-                                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#CA56F2] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Message
+                                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#CA56F2] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">@lang('message')
                                         *</label>
                                 </div>
-                                <button class="menu bg-green-300" wire:click.prevent="index">Send</button>
+                                <button class="menu bg-green-300 capitalize" wire:click.prevent="save">@lang('send')</button>
                             </form>
                         </div>
                     </div>
@@ -95,13 +95,10 @@
             </div>
         </div>
 
-        <!-- footer  start-->
-        <footer class="overflow-hidden rounded-b-2xl">
-            <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} All Rights Reserved
-                by <a class="hover:text-[#FA5252] duration-300 transition"
-                      href="{{$main->site_url}}" target="_blank"
-                      rel="noopener noreferrer">{{$main->name}}</a>. </p>
+        <footer class="overflow-hidden rounded-b-2xl capitalize">
+            <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} @lang('all rights reserved')
+                by <a class="text-pink-400 duration-300 transition"
+                      href="{{$main->site_url}}" target="_blank">{{$main->name}}</a>. </p>
         </footer>
-        <!-- footer ends -->
     </div>
 </div>

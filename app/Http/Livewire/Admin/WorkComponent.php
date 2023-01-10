@@ -15,7 +15,7 @@ class WorkComponent extends Component
     use WithFileUploads;
 
     public $editmode, $title, $body, $details, $preview, $work;
-    public $images=[], $main_image, $about_image;
+    public $images, $main_image, $about_image;
     public function mount($id=null)
     {
         app()->setLocale(\session()->get('locale'));
@@ -57,23 +57,10 @@ class WorkComponent extends Component
             $work->status = 'active';
         }
         $work->save();
-        $this->alert('success', 'Status successfully ' .$work->status.'d');
+        $this->alert('success', __('Data updated successfully'));
 
     }
-    public function logoUpdate()
-    {
-        $this->validate([
-            'logo' => ['required','image', 'max:1024']
-        ]);
-        if ($this->logo){
-            $this->work->clearMediaCollection();
-            $a = $this->work->addMedia($this->logo->getRealPath())->toMediaCollection('default');
-//            unlink("media/".$a->id.'/'. $a->file_name);g
-            $this->alert('success', __('Data updated successfully'));
 
-            $this->reset('logo');
-        }
-    }
     public function mainImageUpdate()
     {
         $this->validate([
@@ -88,21 +75,13 @@ class WorkComponent extends Component
         }
     }
 
-    public function updatedImages()
+    public function imagesUpdate()
     {
         $this->validate([
-            'images.*' => ['required','image', 'max:1024']
+            'images' => ['required','image', 'max:1024']
         ]);
-    }
-    public function aboutImageUpdate()
-    {
-        $this->validate([
-            'images.*' => ['required','image', 'max:1024']
-        ]);
-            foreach ($this->images as $image){
-                $a = $this->work->addMedia($image->getRealPath())->toMediaCollection('images');
+                $a = $this->work->addMedia($this->images->getRealPath())->toMediaCollection('images');
                 unlink("storage/media/".$a->id.'/'. $a->file_name);
-            }
             $this->alert('success', __('Data updated successfully'));
             $this->reset('images');
         $this->mount($this->work->id);

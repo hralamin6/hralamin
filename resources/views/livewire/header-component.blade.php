@@ -22,7 +22,7 @@
                         <button @click="lang=!lang" @click.stop type="button" class="menu capitalize"><span class="mr-2"><i class="fas fa-language"></i></span> {{session()->get('locale')}}</button>
                     </span>
                     </div>
-                    <div x-show="lang" @click.outside="lang=false" @click="lang=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                    <div x-cloak x-show="lang" @click.outside="lang=false" @click="lang=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                         <div class="rounded-md bg-white dark:bg-gray-800 shadow-xs">
                             <div class="py-1">
                                 <a wire:click.prevent="$set('locale', 'bn')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('bangla')</a>
@@ -60,20 +60,33 @@
             <li>
                 <a class="{{Route::is('work')?'menu-active':'menu'}}" href="{{route('work')}}"><span class="mr-2 text-base"><i class="fas fa-briefcase"></i></span>@lang('work')</a>
             </li>
-            <li>
-                <a class="{{Route::is('blog')?'menu-active':'menu'}}" href="{{route('blog')}}"><span class="mr-2 text-base"><i class="fa-brands fa-blogger"></i></span>@lang('blog')</a>
-            </li>
+{{--            <li>--}}
+{{--                <a class="{{Route::is('blog')?'menu-active':'menu'}}" href="{{route('blog')}}"><span class="mr-2 text-base"><i class="fa-brands fa-blogger"></i></span>@lang('blog')</a>--}}
+{{--            </li>--}}
             <li>
                 <a class="{{Route::is('contact')?'menu-active':'menu'}}" href="{{route('contact')}}"><span class="mr-2 text-base"><i class="fa-solid fa-address-book"></i></span>@lang('contact')</a>
             </li>
             @can('isAdmin')
                 @auth()
-                    <li>
-                        <a data-turbolinks="false" class="{{Route::is('admin.work')?'menu-active':'menu'}}" href="{{route('admin.work')}}"><span class="mr-2 text-base"><i class="fa-solid fa-cog"></i></span>@lang('work')</a>
-                    </li>
-                    <li>
-                        <a class="{{Route::is('admin.setting')?'menu-active':'menu'}}" href="{{route('admin.setting')}}"><span class="mr-2 text-base"><i class="fa-solid fa-cog"></i></span>@lang('setting')</a>
-                    </li>
+                    <div class="relative inline-block text-left" x-data="{admin:false}">
+                        <div>
+                    <span class="rounded-md shadow-sm">
+                        <button @click="admin=!admin" @click.stop type="button" class="menu capitalize"><span class="mr-2 text-base"><i class="fas fa-dashboard"></i></span> @lang('admin')</button>
+                    </span>
+                        </div>
+                        <div x-cloak x-show="admin" @click.outside="admin=false" @click="admin=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                            <div class="rounded-md bg-white dark:bg-gray-800 shadow-xs">
+                                <div class="py-1">
+                                    <a href="{{route('admin.about')}}" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('about')</a>
+                                    <a href="{{route('admin.resume')}}" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('resume')</a>
+                                    <a href="{{route('admin.skill')}}" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('skill')</a>
+                                    <a href="{{route('admin.contact')}}" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('contact')</a>
+                                    <a href="{{route('admin.work')}}" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('work')</a>
+                                    <a href="{{route('admin.setting')}}" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('setting')</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endauth
             @endcan
             <div class="relative inline-block text-left" x-data="{lang:false}">
@@ -82,7 +95,7 @@
                         <button @click="lang=!lang" @click.stop type="button" class="menu capitalize"><span class="mr-2 text-base"><i class="fas fa-language"></i></span> {{session()->get('locale')}}</button>
                     </span>
                 </div>
-                <div x-show="lang" @click.outside="lang=false" @click="lang=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                <div x-cloak x-show="lang" @click.outside="lang=false" @click="lang=false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                     <div class="rounded-md bg-white dark:bg-gray-800 shadow-xs">
                         <div class="py-1">
                             <a wire:click.prevent="$set('locale', 'bn')" class="block px-4 py-2 text-sm leading-5 text-gray-700 dark:text-gray-300 hover:dark:bg-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">@lang('bangla')</a>
@@ -128,20 +141,33 @@
             <li>
                 <a class="{{Route::is('work')?'menu-active':'menu'}}" href="{{route('work')}}"><span class="mr-2 text-xl"><i class="fas fa-briefcase"></i></span>@lang('work')</a>
             </li>
-            <li>
-                <a class="{{Route::is('blog')?'menu-active':'menu'}}" href="{{route('blog')}}"><span class="mr-2 text-xl"><i class="fa-brands fa-blogger"></i></span>@lang('blog')</a>
-            </li>
+{{--            <li>--}}
+{{--                <a class="{{Route::is('blog')?'menu-active':'menu'}}" href="{{route('blog')}}"><span class="mr-2 text-xl"><i class="fa-brands fa-blogger"></i></span>@lang('blog')</a>--}}
+{{--            </li>--}}
             <li>
                 <a class="{{Route::is('contact')?'menu-active':'menu'}}" href="{{route('contact')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-address-book"></i></span>@lang('contact')</a>
             </li>
             @can('isAdmin')
                 @auth()
                     <li>
+                        <a class="{{Route::is('admin.about')?'menu-active':'menu'}}" href="{{route('admin.about')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('about')</a>
+                    </li>
+                    <li>
+                        <a class="{{Route::is('admin.resume')?'menu-active':'menu'}}" href="{{route('admin.resume')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('resume')</a>
+                    </li>
+                    <li>
+                        <a class="{{Route::is('admin.skill')?'menu-active':'menu'}}" href="{{route('admin.skill')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('skill')</a>
+                    </li>
+                    <li>
+                        <a class="{{Route::is('admin.contact')?'menu-active':'menu'}}" href="{{route('admin.contact')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('contact')</a>
+                    </li>
+                    <li>
                         <a class="{{Route::is('admin.setting')?'menu-active':'menu'}}" href="{{route('admin.setting')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('setting')</a>
                     </li>
                     <li>
                         <a data-turbolinks="false" class="{{Route::is('admin.work')?'menu-active':'menu'}}" href="{{route('admin.work')}}"><span class="mr-2 text-xl"><i class="fa-solid fa-cog"></i></span>@lang('work')</a>
                     </li>
+
                 @endauth
 
             @endcan

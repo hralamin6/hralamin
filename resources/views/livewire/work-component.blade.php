@@ -29,12 +29,9 @@
             </div>
         </div>
     </div>
-    <!-- footer start -->
-    <footer class="overflow-hidden rounded-b-2xl">
-        <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} All Rights Reserved
-            by <a class="hover:text-[#FA5252] duration-300 transition"
-                  href="{{$main->site_url}}" target="_blank"
-                  rel="noopener noreferrer">{{$main->name}}</a>. </p>
+    <footer class="overflow-hidden rounded-b-2xl capitalize">
+        <p class="text-center py-6 text-gray-500 dark:text-color-910"> © {{date('Y')}} @lang('all rights reserved')
+            by <a class="text-pink-400 duration-300 transition"
+                  href="{{$main->site_url}}" target="_blank">{{$main->name}}</a>. </p>
     </footer>
-    <!-- footer ends -->
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Mail\ContactMail;
+use App\Models\Contact;
 use App\Models\Setup;
 use Illuminate\Support\Facades\Mail;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -25,9 +26,21 @@ class ContactComponent extends Component
            'message' => 'required|max:2000',
            'email' => 'required|email',
         ]);
-        Mail::to('hralamin2020@gmail.com')->send(new ContactMail($data));
-        $this->alert('success', 'Successfully saved');
+        $a = Mail::to('hralamin2020@gmail.com')->send(new ContactMail($data));
+        $this->alert('success', __('Data updated successfully'));
     }
+    public function save()
+    {
+        $data = $this->validate([
+            'name' => 'required',
+            'message' => 'required',
+            'email' => 'required|email',
+        ]);
+            Contact::create($data);
+            $this->alert('success', __('Data sent successfully'));
+        $this->reset('name', 'email', 'message');
+    }
+
     public function render()
     {
 

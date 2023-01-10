@@ -4,18 +4,18 @@
         <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
-                <form action="" class="mt-6 mb-0 space-y-4 rounded-lg p-8 border capitalize">
+                <form action="" class="mt-6 mb-0 space-y-4 dark:text-gray-200 rounded-lg p-8 border dark:border-gray-600 capitalize">
                     <p class="text-lg font-medium">@lang('general information')</p>
                     <div class="relative mt-1">
-                        <input type="text" wire:model.lazy="title" class="w-full capitalize rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter title')"/>
+                        <input type="text" wire:model.lazy="title" class="w-full capitalize dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter title')"/>
                         @error('title')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div class="relative mt-1">
-                        <input type="text" wire:model.lazy="body" class="w-full capitalize rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter body')"/>
+                        <input type="text" wire:model.lazy="body" class="w-full capitalize dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter body')"/>
                         @error('body')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div class="relative mt-1">
-                        <input type="url" wire:model.lazy="preview" class="w-full capitalize rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter preview')"/>
+                        <input type="url" wire:model.lazy="preview" class="w-full capitalize dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter preview')"/>
                         @error('preview')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div  class="relative mt-1">
@@ -28,10 +28,10 @@
                     <button wire:click.prevent="save" type="submit" class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white">@lang('save')</button>
                 </form>
                 @if($editmode)
-                <form action="" class="mt-6 mb-0 space-y-4 rounded-lg p-8 border capitalize">
+                <form action="" class="mt-6 mb-0 space-y-4 rounded-lg p-8 dark:text-gray-200 border dark:border-gray-600 capitalize">
                     <p class="text-lg font-medium">@lang('general information')</p>
                     <div class="grid grid-cols-2 gap-4 md:gap-8">
-                        <div class="flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
+                        <div class="dark:text-gray-200 flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
                             <label for="image" class="flex justify-between gap-2">@lang('choose main image')</label>
                             <input id="image" type="file" class="hidden" wire:model.lazy="main_image">
                         @if ($main_image)<img class="w-16 h-16" src="{{ $main_image->temporaryUrl() }}">@endif
@@ -40,39 +40,37 @@
                             <button wire:click.prevent="mainImageUpdate" type="button" class="menu-active w-24 capitalize h-8">@lang('update')</button>
                             <img class="w-16 h-16" src="{{$work->getFirstMediaUrl('image', 'thumb')}}" alt="">
                         </div>
-                        <div class="flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
-                            <label for="images" class="cursor-pointer flex justify-between gap-2">@lang('choose images') </label>
-                                <input id="images" multiple type="file" class="hidden" wire:model.lazy="images">
-                                @if ($images)
-                                    @foreach($images as $img)
-                                        <img class="w-16 h-16" src="{{ $img->temporaryUrl() }}">
-                                    @endforeach
-                                @endif
-                                @error('images')<span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span>@enderror
-                            <div x-cloak x-show="isUploading"><progress value="0" :value="progress" class="h-full rounded-full"></progress></div>
-                            <button wire:click.prevent="aboutImageUpdate" type="button" class="menu-active w-24 capitalize h-8">@lang('update')</button>
+                        <div class="dark:text-gray-200 flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
+                            <label for="images" class="flex justify-between gap-2">@lang('choose images')</label>
+                            <input id="images" type="file" class="hidden" wire:model.lazy="images">
+                            @if ($images)<img class="w-16 h-16" src="{{ $images->temporaryUrl() }}">@endif
+                            <div x-cloak x-show="isUploading"><progress max="100" x-bind:value="progress"></progress></div>
+                            @error('images')<span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span>@enderror
+                            <button wire:click.prevent="imagesUpdate" type="button" class="menu-active w-24 capitalize h-8">@lang('update')</button>
                             @foreach($work->getMedia('images') as $k => $media)
                                 <img style="height: 66px; width: 66px;" src="{{$media->getAvailableUrl(['thumb'])}}" alt="asdf">
                                 <button class="text-sm font-bold" wire:click.prevent="deleteMedia({{$work}}, {{$k}})">Delete</button>
                             @endforeach
                         </div>
+
                     </div>
                 </form>
                 @endif
 
 
             </div>
-            <div class="mt-6 mb-0 space-y-4 rounded-lg p-8 border capitalize w-full overflow-x-auto">
-                <table class="w-full whitespace-no-wrap">
+            <div class="mt-6 mb-0 space-y-4 rounded-lg p-8 border capitalize w-full overflow-x-auto text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <table class="w-full whitespace-no-wrap ">
                     <thead>
                     <tr
-                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                        class="text-xs font-semibold tracking-wide text-left"
                     >
-                        <th class="px-4 py-3">Sl</th>
-                        <th class="px-4 py-3">Title</th>
-                        <th class="px-4 py-3">Status</th>
-                        <th class="px-4 py-3">Date</th>
-                        <th class="px-4 py-3">Actions</th>
+                        <th class="px-4 py-3">@lang('serial')</th>
+                        <th class="px-4 py-3">@lang('title')</th>
+                        <th class="px-4 py-3">@lang('preview')</th>
+                        <th class="px-4 py-3">@lang('status')</th>
+                        <th class="px-4 py-3">@lang('date')</th>
+                        <th class="px-4 py-3">@lang('action')</th>
                     </tr>
                     </thead>
                     <tbody
@@ -82,6 +80,7 @@
                         <tr wire:key="row-{{ $work->id }}" class="text-gray-700 dark:text-gray-400">
                             <td>{{$i+1}}</td>
                             <td>{{$work->title}}</td>
+                            <td><a href="{{$work->preview}}">{{$work->preview}}</a></td>
                             <td class="px-4 py-3 text-xs">
                                 <button class="uppercase px-2 py-1 font-semibold leading-tight {{$work->status==='active'?'text-green-700 bg-green-100':'text-red-700 bg-red-100'}}  rounded-full " wire:click.prevent="updateStatus({{ $work->id }})">{{ $work->status }}
                                     <span wire:loading wire:target="updateStatus({{ $work->id }})" class="animate-spin rounded-full h-4 w-4 border-2 border-black"></span></button>
@@ -102,17 +101,14 @@
                             </td>
                         </tr>
                     @empty
-                        <center> <h2 class="text-red-600">No cv found</h2> </center>
+                        <center> <h2 class="text-red-600">@lang('the table is empty')</h2> </center>
                     @endforelse
                     </tbody>
                 </table>
             </div>
             <div>
-
                 {{ $works->links() }}
             </div>
-
-
         </div>
     </div>
 </div>
