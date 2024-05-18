@@ -5,15 +5,15 @@
                 <form action="" class="mt-6 mb-0 space-y-4 dark:text-gray-200 rounded-lg p-8 border dark:border-gray-600 capitalize">
                     <p class="text-lg font-medium">@lang('general information')</p>
                     <div class="relative mt-1">
-                        <input type="text" wire:model.lazy="title" class="w-full capitalize dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter title')"/>
+                        <input type="text" wire:model.lazy="title" class="w-full dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter title')"/>
                         @error('title')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div class="relative mt-1">
-                        <input type="text" wire:model.lazy="body" class="w-full capitalize dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter body')"/>
+                        <input type="text" wire:model.lazy="body" class="w-full dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter body')"/>
                         @error('body')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                     </div>
                     <div class="relative mt-1">
-                        <input type="text" wire:model.lazy="icon" class="w-full capitalize dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter icon')"/>
+                        <input type="text" wire:model.lazy="icon" class="w-full dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600 rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="@lang('enter icon')"/>
                         @error('icon')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                     </div>
 

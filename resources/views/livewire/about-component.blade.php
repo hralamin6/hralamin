@@ -13,7 +13,7 @@
                     <div class="col-span-12 md:col-span-8 space-y-2.5">
                         <!-- who am i content  -->
                         <div class="md:mr-12 xl:mr-16">
-                            <h3 class="text-4xl text-gray-900 font-medium dark:text-white mb-2.5 capitalize">@lang('who am i')?</h3>
+                            <h3 class="text-4xl text-gray-900 font-medium dark:text-white mb-2.5 capitalize">@lang('about me')</h3>
                             <p class="text-gray-lite dark:text-color-910 leading-7 text-gray-600"> {{$main->about}} </p>
                         </div>
 

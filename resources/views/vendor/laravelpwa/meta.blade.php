@@ -6,7 +6,7 @@
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="{{ $config['display'] == 'standalone' ? 'yes' : 'no' }}">
 <meta name="application-name" content="{{ $config['short_name'] }}">
-<link rel="icon" sizes="{{ data_get(end($config['icons']), 'sizes') }}" href="{{ data_get(end($config['icons']), 'src') }}">
+<link rel="icon" sizes="{{ data_get(end($config['icons']), 'sizes') }}" href="{{\App\Models\Setup::first()->getFirstMediaUrl('default')}}" onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';">
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="{{ $config['display'] == 'standalone' ? 'yes' : 'no' }}">

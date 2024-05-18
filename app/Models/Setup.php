@@ -25,7 +25,7 @@ class Setup extends Model implements HasMedia
     {
         $this->addMediaCollection('default')->onlyKeepLatest(1);;
         $this->addMediaConversion('thumb')->performOnCollections('main_image', 'about_image')
-            ->fit(Manipulations::FIT_CROP, 600, 600)->nonQueued();
+            ->nonQueued();
     }
 
 }

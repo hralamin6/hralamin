@@ -103,6 +103,16 @@
                             <div x-cloak x-show="isUploading"><progress max="100" x-bind:value="progress"></progress></div>
                             <button wire:click.prevent="aboutImageUpdate" type="button" class="menu-active w-24 capitalize h-8">@lang('update')</button>
                         </div>
+                        <div class="flex-col space-y-2 gap-4"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false" x-on:livewire-upload-progress="progress = $event.detail.progress">
+                            <label class="cursor-pointer flex justify-between gap-2">
+                                @lang('choose resume') <input type="file" class="hidden" wire:model.lazy="resume">
+                                @if ($resume)<img class="w-16 h-16" src="{{ $resume->temporaryUrl() }}">
+                                @else <img class="w-16 h-16" src="{{$setup->getFirstMediaUrl('resume', 'thumb')}}" alt="">@endif
+                                @error('resume')<span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span>@enderror
+                            </label>
+                            <div x-cloak x-show="isUploading"><progress max="100" x-bind:value="progress"></progress></div>
+                            <button wire:click.prevent="resumeUpdate" type="button" class="menu-active w-24 capitalize h-8">@lang('update')</button>
+                        </div>
                     </div>
                 </form>
             </div>

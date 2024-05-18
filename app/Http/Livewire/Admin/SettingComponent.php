@@ -16,7 +16,7 @@ class SettingComponent extends Component
 
     public $name, $designation, $site_name, $site_url, $phone, $phone_two, $date_of_birth, $email, $email_two, $location, $facebook, $twitter, $youtube, $github, $about;
     public $setup;
-    public $logo, $main_image, $about_image;
+    public $logo, $main_image, $about_image, $resume;
     public function mount()
     {
         app()->setLocale(\session()->get('locale'));
@@ -82,7 +82,7 @@ class SettingComponent extends Component
     public function mainImageUpdate()
     {
         $this->validate([
-            'main_image' => ['required','image', 'max:1024']
+            'main_image' => ['required','image', 'max:3024']
         ]);
         if ($this->main_image){
             $this->setup->clearMediaCollection('main_image');
@@ -97,7 +97,7 @@ class SettingComponent extends Component
     public function aboutImageUpdate()
     {
         $this->validate([
-            'about_image' => ['required','image', 'max:1024']
+            'about_image' => ['required','image', 'max:3024']
         ]);
         if ($this->about_image){
             $this->setup->clearMediaCollection('about_image');
@@ -106,6 +106,21 @@ class SettingComponent extends Component
             $this->alert('success', __('Data updated successfully'));
 
             $this->reset('about_image');
+
+        }
+    }
+    public function resumeUpdate()
+    {
+        $this->validate([
+            'resume' => ['required', 'max:2024']
+        ]);
+        if ($this->resume){
+            $this->setup->clearMediaCollection('resume');
+            $a = $this->setup->addMedia($this->resume->getRealPath())->toMediaCollection('resume');
+//            unlink("storage/media/".$a->id.'/'. $a->file_name);
+            $this->alert('success', __('Data updated successfully'));
+
+            $this->reset('resume');
 
         }
     }

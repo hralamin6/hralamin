@@ -16,13 +16,13 @@
         @apply px-6 text-white bg-gradient-to-r from-red-500 to-pink-500 rounded-md cursor-pointer flex items-center font-medium text-sm mx-2 py-2 transition-all ease-in-out duration-300;
     }
     .menu {
-        @apply px-6 dark:text-gray-200 dark:bg-gray-700 text-gray-600 hover:text-white bg-white hover:bg-gradient-to-r from-red-500 to-pink-500 rounded-md cursor-pointer flex items-center font-medium text-sm mx-2 py-2 transition-all ease-in-out duration-300;
+        @apply px-3 dark:text-gray-200 dark:bg-gray-700 text-gray-600 hover:text-white bg-white hover:bg-gradient-to-r from-red-500 to-green-500 my-0.5 rounded-md cursor-pointer flex items-center font-medium text-sm mx-2 py-2 transition-all ease-in-out duration-300;
     }
     .mobile-menu {
-        @apply px-6 dark:text-gray-200 dark:bg-gray-700 text-gray-600 hover:text-white bg-white hover:bg-gradient-to-r from-red-500 to-pink-500 rounded-md cursor-pointer flex items-center font-medium text-sm mx-2 py-2 transition-all ease-in-out duration-300;
+        @apply px-6 dark:text-gray-200 dark:bg-gray-700 text-gray-600 hover:text-white bg-white hover:bg-gradient-to-r from-red-500 to-green-500 my-0.5 rounded-md cursor-pointer flex items-center font-medium text-sm mx-2 py-2 transition-all ease-in-out duration-300;
     }
     .socialbtn {
-        @apply px-3 dark:text-gray-200 dark:bg-gray-700 text-gray-600 hover:text-white bg-white hover:bg-gradient-to-r from-red-500 to-pink-500 rounded-md cursor-pointer flex items-center font-medium text-sm mx-1 py-2 transition-all ease-in-out duration-300;
+        @apply px-3 dark:text-gray-200 dark:bg-gray-700 text-gray-600 hover:text-white bg-white hover:bg-gradient-to-r from-red-500 to-green-500 my-0.5 rounded-md cursor-pointer flex items-center font-medium text-sm mx-1 py-2 transition-all ease-in-out duration-300;
     }
     .dowanload-btn {
         @apply px-8 mt-8 hover:bg-red-200 text-white bg-gradient-to-r from-pink-500 to-red-500 rounded-full text-lg cursor-pointer flex items-center font-medium mx-4 py-3 transition-all ease-in-out duration-300;

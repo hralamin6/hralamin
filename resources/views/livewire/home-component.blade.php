@@ -26,14 +26,14 @@
                             </span>
             </a>
             <!-- linkedin icon and link -->
-            <a href="{{$main->github}}com/" target="_blank" rel="noopener noreferrer">
+            <a href="{{$main->github}}" target="_blank" rel="noopener noreferrer">
                             <span class="socialbtn text-[#0072b1]">
                                 <i class="fa-brands fa-github"></i>
                             </span>
             </a>
         </div>
         <!-- dowanload button -->
-        <button class="dowanload-btn flex gap-2">
-            <i class="fas fa-download"></i> Download CV </button>
+        <a href="{{\App\Models\Setup::first()->getFirstMediaUrl('resume')}}" class="dowanload-btn flex gap-2">
+            <i class="fas fa-download"></i> Download CV </a>
     </div>
 

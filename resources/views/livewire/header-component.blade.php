@@ -1,20 +1,15 @@
 <header x-data="{nav: false}" class="flex justify-between items-center fixed top-0 left-0 w-full lg:static z-10">
     <div class="flex justify-between w-full lg:px-0 bg-[#F3F6F6] lg:bg-transparent dark:bg-black">
-        <div class="flex justify-between w-full items-center space-x-4 lg:my-8 my-3">
             <!-- website logo -->
-            <a class="mx-2 max-h-10 overflow-hidden object-contain w-24" href="{{route('home')}}">
-                <img class="" src="{{$main->getFirstMediaUrl('default')}}" alt="logo"
-                     onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';"/>
-            </a>
-            @auth()
-                <div class="lg:hidden">
-                    <a wire:click.prevent="logout" class="{{Route::is('logout')?'menu-active':'menu'}} cursor-pointer"><span class="mr-2"><i class="fas fa-sign-out"></i></span>@lang('logout')</a>
-                </div>
-            @else
-                <div class="lg:hidden">
-                    <a class="{{Route::is('login')?'menu-active':'menu'}}" href="{{route('login')}}"><span class="mr-2"><i class="fas fa-sign-in"></i></span>@lang('login')</a>
-                </div>
-            @endauth
+        <a href="{{route('home')}}" class="max-h-12 overflow-hidden object-fill max-w-xs w-36">
+            <img class=""
+                 src="{{$main->getFirstMediaUrl('default')}}" alt="about avatar" onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';" />
+        </a>
+{{--        <div class="text-center px-1">--}}
+{{--            <a href="{{route('home')}}" class="text-md md:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">--}}
+{{--                {{$main->site_name}}--}}
+{{--            </a>--}}
+{{--        </div>--}}
             <div class="flex items-center">
                 <div class="relative inline-block text-left lg:hidden" x-data="{lang:false}">
                     <div>
@@ -37,12 +32,20 @@
                     <i x-show="dark" class="fa-solid fa-sun text-xl"></i>
                 </button>
                 <!-- mobile toggle button -->
+                @auth()
+                    <div class="lg:hidden">
+                        <a wire:click.prevent="logout" class="{{Route::is('logout')?'menu-active':'menu'}} cursor-pointer"><span class="mr-2"><i class="fas fa-sign-out"></i></span>@lang('logout')</a>
+                    </div>
+                @else
+                    <div class="lg:hidden">
+                        <a class="{{Route::is('login')?'menu-active':'menu'}}" href="{{route('login')}}"><span class="mr-2"><i class="fas fa-sign-in"></i></span>@lang('login')</a>
+                    </div>
+                @endauth
                 <button x-cloak @click.prevent="nav=!nav" x-on:click.stop type="button" class="menu py-1 px-2 rounded-full lg:hidden">
                     <i x-show="!nav" class="fa-solid fa-bars text-xl"></i>
                     <i x-show="nav" class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
-        </div>
     </div>
 
     <!-- header items two for large screens -->
