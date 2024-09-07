@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('setups', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable()->default('sample name');
-            $table->text('designation')->nullable()->default('sample designation');
+            $table->text('designation')->nullable();
             $table->string('site_name')->nullable()->default('Site name');
             $table->string('site_url')->nullable()->default('https://sample.com');
             $table->string('phone')->nullable()->default('01472583698');
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('twitter')->nullable()->default('http://twitter.com');
             $table->string('youtube')->nullable()->default('http://youtube.com');
             $table->string('github')->nullable()->default('http://gitbub.com');
-            $table->text('about')->nullable()->default('asdfa saerawerfasdfadsf');
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }
