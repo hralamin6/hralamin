@@ -7,14 +7,15 @@
                 @foreach($works as $i=> $work)
                     <div class="rounded-lg mb-2 dark:bg-transparent border dark:border-[#212425] dark:border-2 capitalize">
                         <div class="overflow-hidden">
-                            <a class="{{route('work.details', $work->id)}}">
+                            <a href="{{route('work.details', $work->id)}}">
                                 <img class="h-48 object-fill cursor-pointer transition duration-200 ease-in-out transform hover:scale-110"
                                      src="{{$work->getFirstMediaUrl('image', 'thumb')}}" alt="blog image"
                                      onerror="this.onerror=null;this.src='https://picsum.photos/id/{{$i+1000}}/600/300';"/>
                             </a>
                         </div>
                         <div class="p-2">
-                            <p class="text-xl text-gray-800 dark:text-gray-100">{{$work->title}}</p>
+                            <a href="{{route('work.details', $work->id)}}"
+                                class="text-xl text-gray-800 dark:text-gray-100">{{$work->title}}</a>
                             <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{{$work->body}}</p>
                         </div>
                         <div class="grid grid-cols-2 justify-between gap-8 mt-4">
